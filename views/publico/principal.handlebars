@@ -1,0 +1,539 @@
+
+<style>
+body html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#nave{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3vh 3vh;    
+}
+
+#nave a{
+  text-decoration: none;
+  color: #fff;
+}
+#nave a:hover{
+  color:orangered
+}
+
+.linkNav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  
+}
+.linkNav ul li{
+  position: relative;
+  margin-left: 8vh;
+  left: 15vh;
+}
+
+/* botões da barra de navegação */
+.buttonNav button{
+  background-color: #fa660b;
+  border: none;
+  border-radius: 80px;
+  text-align: center;
+  padding: 0.4vw 1.8vh;
+  color: #fff;
+  font-size: 1.8vh;
+
+}
+
+.inputContainer {
+  position: relative  ;
+  width: 15vw;
+  margin-left: 15vh;
+  
+} 
+
+.inputImagem {
+  width: 100%;
+  padding-left: 4.5vh;
+  height: 4vh;
+  border: 1px solid #fa660b;
+  border-radius: 10vh;
+}
+
+.inputContainer img {
+  position: absolute;
+  left: 1.5vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vh;
+  height: 2vh;
+}
+
+
+#imagemPrincipal{
+
+}
+
+#categoria{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+  width: 100%;
+  
+}
+.itemCategoria{
+  margin-left: 20vh;
+}
+.textoCategoria{
+  position: absolute;
+  background-color: #fa660b;
+  border-radius: 1vh;
+  border: none;
+  color: #000;
+  text-align: center;
+  padding: 0.4vh 1.4vh;
+  align-items: center;
+}
+
+
+#sombra{
+  display: grid;
+}
+
+#sombraPromoCima{
+  height: 30vh; 
+  background: linear-gradient(to top , #fa660b,black);
+  
+}
+#sombraPromoBaixo{
+  height: 30vh;
+  background: linear-gradient( to bottom , #fa660b,black );    
+}
+
+#promocoes{
+  position: relative;
+  top: -80px;
+}
+.textoPromo{
+  display: flex;
+  justify-content: center;
+  color:#fff;
+  text-align:center ;
+  position: relative;
+  font-size: 10vh ;
+  font-family:'montserrat','Poppins', sans-serif;
+  top:-35vh;
+  left:-15hv;
+}
+
+
+.promo-container {
+  width: 250px;
+  height: 150px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: -3vh;
+  margin-left: 2vh;
+}
+
+/* Estilo para o texto "ATÉ" */
+.promo-text-small {
+  font-size: 20px;
+  color: #000;
+  margin: 0;
+  margin-bottom: -50px;
+}
+
+/* Estilo para o texto "70%" */
+.promo-discount {
+  font-size: 10vh;
+  margin: 0;        
+  line-height: 1;
+  
+}
+
+/* Estilo para o texto "OFF" */
+.promo-text-off {
+  font-size: 20px;            
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* Botão com o texto "EM ATÉ 10X SEM JUROS!" */
+.promo-button {
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  font-size: 14px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+/* Alinhar parte de baixo "button"   */ 
+.buttonPromo{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 3vw;
+}
+
+#cart-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+.cart-popup {
+  color: #fff;
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 300px;
+  padding: 15px;
+  background-color: #202020;
+  border: 1px solid #ddd;   
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(241, 70, 17, 0.988);
+}
+.cart-popup h2 {
+  margin-top: 0;
+}
+
+#cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#cart-items div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.cart-popup button {
+  background-color:#fa660b ;
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.cart-popup button:hover {
+  background-color: #fa4f0b;
+}
+
+#cartaoPromo{
+  color: #000; 
+  display: flex; 
+  justify-content: center;
+  position:relative;
+  top:-250px
+}
+
+</style>
+
+<div id="topoSite">
+    <div id="nave" >
+      
+        <div>
+          <a href=""><img src="/img/LogoTech.png" alt="logo" height="60vw"> </a>
+        </div>
+          
+        <div class="linkNav">
+          <ul>
+
+            <li><a href="">Promoções</a></li>
+            <li><a href="">Produtos</a></li>
+            <li><a href="">Suporte</a></li>
+            <li><a href="">Início</a></li>
+          
+          </ul>
+        </div>
+
+        <div class="inputContainer">
+          <img src="/img/lupa.png" alt="logo">
+          <input id="pesquisa" type="text" class="inputImagem" placeholder="Pesquise aqui">
+        </div>
+
+        <div class="cart-icon" onclick="toggleCart()">
+          <img src="/img/carrinhoNav.png " alt="carrinho" height="40vh">
+          <span id="cart-count">0</span>
+        </div>
+        <div>
+              
+          <div class="cart-popup" id="cart-popup">
+              <div style="display: flex;justify-content: center;">
+                <h5>Carrinho de Compras</h5>
+                <input type="button" class="btn-close btn-close-white" onclick="toggleCart()" style="margin-left: 35px;" aria-label="Close"></input>
+              </div>
+              <div id="cart-items"></div>
+              <p>Total: R$ <span id="cart-total">0.00</span></p>
+              <button onclick="checkout()">Finalizar Compra</button>
+          </div>
+
+        </div>
+
+        <div class="buttonNav">
+          <a href="/login"><button name="loginPrincipal">Login</button></a>
+            ou 
+          <a href="/login"><button name="cadastro">Cadastre-se</button></a>
+    
+    </div>
+
+    </div>
+    <div id="imagemPrincipal">
+        <img src="img/imagemPrincipal.png" alt="tech" width="100%">
+  </div>
+</div>
+
+<div id="categoria">
+        <div class="itemCategoria"><a href=""><div class="textoCategoria">notebook</div><img src="https://www.gigabyte.com/Images/Assets/Pages/Homepage/Recommend/5.png?v=zBiC9ZR4Zd-JxIw-3akb6dk3mBqcx_8-JdQI79fnOfU1" alt="notebook"></a></div>
+        <div class="itemCategoria"><a href=""><div class="textoCategoria">fones</div><img src="https://www.gigabyte.com/Images/Assets/Pages/Homepage/Recommend/46.png?v=mFpq-lSJ_KP6u5LAjR8tsBYpADcWRzyn5SGn0S5BLUA1" alt="sla"></a></div>
+        <div class="itemCategoria"><a href=""><div class="textoCategoria">caixa</div><img src="https://www.gigabyte.com/Images/Assets/Pages/Homepage/Recommend/6.png?v=RtriIBnRasE4dFLnY6--cHKB2w3sqrpDGs8E_Yd1VRc1 " alt="ala"></a></div>
+</div>
+
+<div id="sombra">
+    <div id="sombraPromoCima"></div>  
+    <div id="sombraPromoBaixo"></div>
+</div>
+
+<div id="promocoes">
+    <div class="textoPromo">
+      <div>
+        <b>Promoções</b>
+      </div>
+      <div>
+          <div class="promo-container">
+            <div class="buttonPromo">
+                <div class="promo-text-small">ATÉ</div>
+              <p class="promo-discount">70%</p>
+            </div>
+            <div class="buttonPromo">
+                <div class="promo-button">EM ATÉ 10X SEM JUROS!</div>
+                <div class="promo-text-off">OFF</div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="cartaoPromo">
+      <div id="productCarousel" class="carousel slide w-75 p-3" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- Item 1 -->
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 1">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 1</h5>
+                    <p class="card-text">R$ 50,00</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 2">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 2</h5>
+                    <p class="card-text">R$ 70,00</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 3">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 3</h5>
+                    <p class="card-text">R$ 100,00</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 4">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 4</h5>
+                    <p class="card-text">R$ 60,00</p>
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 5">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 5</h5>
+                    <p class="card-text">R$ 80,00</p>
+                    <a onclick="addItem(this)" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 6">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 6</h5>
+                    <p class="card-text">R$ 90,00</p>
+                    <a onclick="addItem(this)"class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 7">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 7</h5>
+                    <p class="card-text">R$ 120,00</p>
+                    <a onclick="addItem(this)" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="https://via.placeholder.com/150" class="card-img-top" alt="Produto 8">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Produto 8</h5>
+                    <p class="card-text">R$ 110,00</p>
+                    <a onclick="addItem(this)" class="btn btn-primary">Comprar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div >
+          <!-- Controles do Carrossel -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev" style="margin-left: -100px;position:absolute">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next" style="margin-right: -100px;position:absolute">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<div id="canalTech">
+
+</div>
+
+<div id="rodape">
+
+</div>
+
+
+
+
+
+<script>
+  // script.js
+
+// Array para armazenar os itens do carrinho
+let cart = [];
+
+function addItem(element) {
+    // Seleciona o elemento pai (card-body) do botão
+    const cardBody = element.parentElement;
+
+    // Busca o valor do nome e do preço nos elementos h5 e p
+    const name = cardBody.querySelector('.card-title').textContent;
+    const priceText = cardBody.querySelector('.card-text').textContent;
+
+    // Remove o símbolo de moeda e converte o valor para número
+    const price = parseFloat(priceText.replace('R$', '').replace(',', '.').trim());
+
+    // Adiciona o item ao carrinho
+    addToCart(name, price);
+}
+// Função para adicionar itens ao carrinho
+function addToCart(name, price) {
+    const item = { name, price };
+    cart.push(item);
+    updateCart();
+}
+
+// Função para atualizar o carrinho
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    // Limpa a lista de itens do carrinho
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    // Adiciona os itens ao carrinho e calcula o total
+    cart.forEach((item, index) => {
+        total += item.price;
+        const itemElement = document.createElement('div');
+        itemElement.innerHTML = `
+            <span>${item.name}</span>
+            <span>R$ ${item.price.toFixed(2)}</span>
+            <button onclick="removeItem(${index})">Remover</button>
+        `;
+        cartItems.appendChild(itemElement);
+    });
+
+    // Atualiza o total e a quantidade de itens
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total.toFixed(2);
+}
+
+// Função para remover um item do carrinho
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// Função para exibir/ocultar o carrinho
+function toggleCart() {
+    const cartPopup = document.getElementById('cart-popup');
+    cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+}
+
+// Função para finalizar a compra
+function checkout() {
+    alert('Compra finalizada!');
+    cart = [];
+    updateCart();
+}
+
+</script>

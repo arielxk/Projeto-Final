@@ -1,0 +1,33 @@
+<div>
+    <h2>Lista de Usuários</h2>
+    <div class="d-flex justify-content-between align-items-center mx-3">
+        <a href="/privado/usuarios/novo">
+            <button type="button" class="btn btn-primary">Novo</button>
+        </a>
+        {{#if total}}
+            <div>
+                Total de Registros: <strong> {{total}}</strong> 
+            </div>
+        {{/if}}
+    </div>
+    <hr style="margin: 10px;">
+    <ul class="list-group mx-5 d-flex">
+        {{#each dados}}
+            <li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center m-0">
+                <a href="./usuarios/find/{{id}}" class="nav-link active flex-fill p-2">
+                    {{nome}}
+                </a>
+                <div>
+                    <a href="./usuarios/editar/{{id}}" class="btn btn-success ms-1 btn-form">Editar</a>
+                    <a href="./usuarios/delete/{{id}}" class="btn btn-danger ms-1 btn-form">Deletar</a>
+                </div>
+            </li>
+        {{else}}
+            <p>{{msg}}</p>
+        {{/each}}
+    </ul>
+</div>
+
+
+
+
