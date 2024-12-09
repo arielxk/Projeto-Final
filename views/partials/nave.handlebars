@@ -1,0 +1,489 @@
+{{#if navegacao}}
+<style>
+
+.inputContainer {
+  position: relative  ;
+  width: 15vw;
+  margin-left: 15vh;
+} 
+
+.inputImagem {
+  width: 100%;
+  padding-left: 4.5vh;
+  height: 4vh;
+  border: 1px solid #fa660b;
+  border-radius: 10vh;
+}
+
+.inputContainer img {
+  position: absolute;
+  left: 1.5vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vh;
+  height: 2vh;
+}
+.cart-icon {
+  position: relative;
+  display: inline-block; /* Garante comportamento inline */
+  margin-left: 10px; /* Ajusta a posição horizontal em relação a outros itens */
+  cursor: pointer;
+}
+#cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(40%, -40%); /* Centraliza no canto superior direito do ícone */
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10; /* Garante que o contador fique sobre outros elementos */
+}
+.cart-popup {
+  z-index: 1000;
+  color: #fff;
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 300px;
+  padding: 15px;
+  background-color: #202020;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(241, 70, 17, 0.988);
+}
+#cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+}
+.buttonNav button {
+  background-color: #fa660b;
+  border: none;
+  border-radius: 80px;
+  text-align: center;
+  padding: 0.4vw 1.8vh;
+  color: #fff;
+  font-size: 1.8vh;
+}
+/* Alinha o carrinho no estado colapsado */
+.navbar-collapse.collapse .cart-icon {
+  margin-left: auto;
+}
+
+/* Alinha o carrinho no estado expandido */
+.navbar-collapse.show .cart-icon {
+  margin-left: auto;
+}
+.inputContainer {
+  position: relative;
+  width: 100%; /* Alinha o input para ocupar o espaço disponível */
+  margin: 0; /* Remove margens extras */
+}
+
+.inputImagem {
+  width: 200px;
+  padding-left: 4.5vh;
+  height: 4vh;
+  border: 1px solid #fa660b;
+  border-radius: 10vh;
+}
+
+.inputContainer img {
+  position: absolute;
+  left: 1.5vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vh;
+  height: 2vh;
+}
+.cart-popup button {
+  background-color:#fa660b ;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
+.cart-popup button:hover {
+  background-color: #fa4f0b;
+}
+
+.removerButton{
+
+  height: 25px;
+  width: 90px;
+
+}
+
+.cart-icon {
+    position: relative;
+    display: inline-block; /* Garante comportamento inline */
+    margin-left: 10px; /* Ajusta a posição horizontal em relação a outros itens */
+    cursor: pointer;
+}
+
+.cart-icon img {
+  width: 3vw;
+}
+
+#cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(40%, -40%); /* Centraliza no canto superior direito do ícone */
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Garante que o contador fique sobre outros elementos */
+}
+.cart-popup {
+  color: #fff;
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 300px;
+  padding: 15px;
+  background-color: #202020;
+  border: 1px solid #ddd;   
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(241, 70, 17, 0.988);
+}
+.cart-popup h2 {
+  margin-top: 0;
+}
+
+#cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#cart-items div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  flex-wrap: wrap;
+}
+/* Regras de responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .cart-icon {
+      margin: 10px 0; /* Adiciona espaço extra ao expandir */
+      position: absolute;
+      right: 10px; /* Garante que fique à direita */
+      top: 10px; /* Ajusta a posição para telas menores */
+  }
+  #cart-count {
+      transform: translate(50%, -50%);
+  }
+  .navbar-collapse .inputContainer {
+      width: calc(100% - 20px); /* Garante que o input fique alinhado ao canto */
+      margin: 0 auto; /* Centraliza o input */
+      padding: 0 10px; /* Adiciona espaçamento interno */
+  }
+  .navbar-collapse .inputImagem {
+      width: 100%; /* O input se ajusta automaticamente */
+  }
+}
+@media (max-width: 1199.98px) {
+  .inputContainer{
+      margin-left: 3rem;
+      margin-bottom: 10px;
+  }
+  .cart-icon{
+      position: absolute;
+      right: 100px;
+      top: 20px;
+  }
+
+
+}
+
+button.removerButton {
+    justify-content: center;
+}
+
+#resultados-pesquisa div {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+#resultados-pesquisa div:hover {
+  background-color: #333;
+}
+
+#resultados-pesquisa p {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  color: #666;
+}
+
+</style>
+
+<nav class="navbar navbar-dark navbar-expand-xl bg-body-tertiary sticky-top" style="background-color: black!important;">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-2" href="/"><img src="/img/logoTech.png" alt="logo" height="60vw"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-5">
+        <li class="nav-item mx-2">
+          <a class="nav-link active" aria-current="page" href="/#sombra">Promoções</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/produto">Produtos</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="">Suporte</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link active" href="/">Início</a>
+        </li>
+      </ul>
+
+<form class="d-flex" id="form-pesquisa">
+  <div class="inputContainer" style="position: relative;">
+    <img src="/img/lupa.png" alt="logo">
+    <input
+      id="pesquisa"
+      type="text"
+      class="inputImagem"
+      placeholder="Pesquise aqui"
+      oninput="pesquisarProdutos()"
+      autocomplete="off"
+    >
+    <!-- Div para exibir os resultados -->
+    <div id="resultados-pesquisa" style="
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+      display: none;
+    "></div>
+  </div>
+</form>
+      <div class="cart-icon" id="cart-icon" onclick="toggleCart()">
+          <img src="/img/carrinhoNav.png " alt="carrinho" height="40vh">
+          <span id="cart-count">0</span>
+      </div>
+      <div class="cart-popup" id="cart-popup">
+        <div style="display: flex;justify-content: center;">
+            <h5>Carrinho de Compras</h5>
+            <input type="button" class="btn-close btn-close-white" onclick="toggleCart()" style="margin-left: 35px;" aria-label="Close"></input>
+        </div>
+        <div id="cart-items"></div>
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+        <button onclick="enviarCarrinho()" style="padding: 1vh 2vw;" >Finalizar Compra</button>
+      </div>
+      <div class="buttonNav" id="botaoCadastro" style="margin-right: 30px; margin-left:50px"> 
+          <a href="/login"><button name="loginPrincipal">Login</button></a>
+            ou 
+          <a href="/cadastro"><button name="cadastro">Cadastre-se</button></a>
+    
+    </div >
+    </div>
+  </div>
+</nav>
+
+
+
+<script>
+let cart = [];
+
+// Carrega o carrinho do localStorage ao iniciar a página
+loadCart();
+function enviarCarrinho() {
+  const cart = localStorage.getItem('cart'); // Obtém o carrinho do localStorage
+  if (cart) {
+    fetch('/finalizar', {
+      method: 'POST', // Define o método como POST
+      headers: {
+        'Content-Type': 'application/json', // Define o tipo de conteúdo
+      },
+      body: cart, // Envia o JSON do carrinho
+    })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "/finalizar"; // Redireciona para a rota /finalizar após enviar os dados
+        } else {
+          console.error('Erro ao enviar os dados do carrinho');
+        }
+      })
+      .catch(error => console.error('Erro:', error));
+  } else {
+    console.log('Carrinho vazio');
+  }
+}
+
+
+// Função para exibir/ocultar o carrinho
+function toggleCart() {
+    const cartPopup = document.getElementById('cart-popup');
+    cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+}
+
+
+function addItem(element) {
+    const cardBody = element.closest('.card-body');
+    if (!cardBody) return;
+
+    const name = cardBody.querySelector('.card-title').textContent.trim();
+    const priceText = cardBody.querySelector('.card-text').textContent.trim();
+    const price = parseFloat(priceText.replace('R$', '').replace(',', '.'));
+
+    if (!isNaN(price)) {
+        addToCart(name, price);
+    } else {
+        console.error("Preço inválido:", priceText);
+    }
+}
+
+function addToCart(name, price) {
+    const item = { name, price };
+    cart.push(item);
+    saveCart(); // Salva o carrinho no localStorage
+    updateCart();
+    alert("Produto adicionado ao carrinho");
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart(); // Salva o carrinho atualizado no localStorage
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartCount = document.getElementById('cart-count');
+    const cartTotal = document.getElementById('cart-total');
+
+    if (!cartItems || !cartCount || !cartTotal) return;
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        const itemElement = document.createElement('div');
+        if (!isNaN(item.price)) {
+    itemElement.innerHTML = `
+        <span>${item.name}</span>
+        <span>R$ ${item.price.toFixed(2)}</span>
+        <button class="removerButton" onclick="removeItem(${index})">Remover</button>
+    `;
+      } else {
+          itemElement.innerHTML = `
+              <span>${item.name}</span>
+              <span>Preço inválido</span>
+              <button class="removerButton" onclick="removeItem(${index})">Remover</button>
+          `;
+      }
+
+        cartItems.appendChild(itemElement);
+    });
+
+    cartCount.textContent = cart.length;
+    cartTotal.textContent = total.toFixed(2);
+}
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart)); // Converte o array para string JSON
+}
+
+function loadCart() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCart();
+    }
+}
+
+</script>
+
+
+
+<script>
+let timeout = null; // Timeout para controle de requisições consecutivas
+
+async function pesquisarProdutos() {
+  const termo = document.getElementById("pesquisa").value; // Valor digitado
+  const resultadosDiv = document.getElementById("resultados-pesquisa"); // Div para resultados
+
+  clearTimeout(timeout); // Limpa o timeout anterior para evitar requisições desnecessárias
+
+  // Valida se o termo está vazio
+  if (!termo.trim()) {
+    resultadosDiv.style.display = "none";
+    resultadosDiv.innerHTML = "";
+    return;
+  }
+
+  // Adiciona um atraso para não disparar requisições muito rapidamente
+  timeout = setTimeout(async () => {
+    try {
+      // Faz a requisição para o servidor
+      const response = await fetch(`/pesquisar?query=${encodeURIComponent(termo)}`);
+      if (!response.ok) throw new Error("Erro ao buscar resultados.");
+
+      const produtos = await response.json(); // Converte a resposta em JSON
+
+      // Exibe os resultados
+      resultadosDiv.style.display = "block";
+      resultadosDiv.innerHTML = ""; // Limpa os resultados anteriores
+
+      if (produtos.length === 0) {
+        resultadosDiv.innerHTML = `<p style="padding: 10px; text-align: center;">Nenhum produto encontrado para "<strong>${termo}</strong>".</p>`;
+      } else {
+       produtos.forEach(produto => {
+          const preco = parseFloat(produto.preco); // Converte para número
+          const item = document.createElement("div");
+          
+          // Verifica se o preço é válido antes de formatar
+          const precoFormatado = isNaN(preco) ? "Indisponível" : `R$ ${preco.toFixed(2)}`;
+
+          item.style.padding = "10px";
+          item.style.borderBottom = "1px solid #ddd";
+          item.style.cursor = "pointer";
+          item.style.color = "#333";
+
+          item.innerHTML = `
+            <a style="text-decoration:none;color:#fff" href="/produto/${produto.id}">
+              <strong>${produto.nome}</strong><br>
+              <small>${produto.descricao}</small><br> 
+              <span style="color: #fa660b;">${precoFormatado}</span>
+            </a>
+          `;
+
+          resultadosDiv.appendChild(item);
+        });
+
+      }
+    } catch (error) {
+      console.error("Erro ao buscar produtos:", error);
+      resultadosDiv.style.display = "block";
+      resultadosDiv.innerHTML = `<p style="padding: 10px; text-align: center; color: red;">Erro ao buscar produtos.</p>`;
+    }
+  }, 300); // Aguarda 300ms antes de realizar a requisição
+}
+</script>
+
+{{/if}}

@@ -1,0 +1,111 @@
+<style>
+    .justificar{
+        min-height: 70vh;
+    }
+    .alinharFinal{
+        display: grid;
+        grid-template-columns: 2fr 1fr auto; /* 3 colunas: Nome, Preço, Botão */
+        gap: 2vw; /* Espaçamento entre linhas */ 
+        align-items: center;
+    }
+    .nome {
+        grid-column: 1;
+    }
+
+    .preco {
+        grid-column: 2;
+        text-align: right; /* Alinha preço à direita */
+    }
+    .justificar button {
+        background-color: #fa660b;
+        border: none;
+        color: #fff;
+        border-radius: 20px;
+        grid-column: 3;
+
+    }
+    #items div{
+        margin: 1vw;
+    }
+    #items a{
+        text-decoration: none;
+        color: #fff;
+    }
+    #items{
+      
+    }
+
+</style>
+
+    <div class="alinhar justificar" >
+        <div>
+            <h5>Carrinho de Compras</h5>
+        </div>
+        <div id="items" >
+             <span style="margin-left:6vh">Valor do Frete</span>
+        <span style="margin-left:6vh">R$ 9,99</span>
+        </div>
+        <p>Total: R$ <span id="total">0.00</span></p>
+        <button onclick="checkout()" style="padding: 1vh 2vw;margin-bottom: 50px;" >Finalizar Compra</button>
+
+    </div>
+
+
+
+
+<script>
+    const carrinho = document.getElementById("cart-icon")
+    carrinho.style.display="none"
+
+</script>
+
+
+
+<script>
+
+carregar()
+
+function carregar(){
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartItems = document.getElementById('items');
+    const cartTotal = document.getElementById('total');
+    
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    cart.forEach((item, index) => {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add("alinharFinal")
+        itemElement.innerHTML = `
+            <a href="/produto/${item.id}" class="nome"> <span>${item.name}</span></a>
+            <span class="preco">R$ ${item.price.toFixed(2)}</span>
+            <button class="botao" class="removerButton" onclick="removeItem(${index})">Remover</button>
+        `;
+        cartItems.appendChild(itemElement);
+    });
+
+    const total = cart.reduce((sum, item) => sum + item.price + 9.99, 0);
+    cartTotal.textContent = total.toFixed(2);
+});
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    saveCart(); // Salva o carrinho atualizado no localStorage
+    updateCart();
+    window.location.reload();
+    carregar()
+    
+}
+
+// Função para finalizar a compra
+function checkout() {
+    alert('Compra finalizada!');
+    cart = [];
+    saveCart(); 
+    updateCart();
+    window.location.reload();
+    carregar()
+    window.location.href = "/";
+
+}
+    </script>

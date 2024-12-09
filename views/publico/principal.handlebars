@@ -1,0 +1,649 @@
+
+<style>
+body html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.inputContainer {
+  position: relative  ;
+  width: 15vw;
+  margin-left: 15vh;
+  
+} 
+
+.inputImagem {
+  width: 100%;
+  padding-left: 4.5vh;
+  height: 4vh;
+  border: 1px solid #fa660b;
+  border-radius: 10vh;
+}
+
+.inputContainer img {
+  position: absolute;
+  left: 1.5vh;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2vh;
+  height: 2vh;
+}
+
+
+#categoria{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+  width: 100%;
+  
+}
+.itemCategoria{
+  margin-left: 20vh;
+}
+.textoCategoria{
+  position: absolute;
+  background-color: #fa660b;
+  border-radius: 1vh;
+  border: none;
+  color: #000;
+  text-align: center;
+  padding: 0.4vh 1.4vh;
+  align-items: center;
+}
+
+
+#sombra{
+  display: grid;
+}
+
+#sombraPromoCima{
+  height: 30vh; 
+  background: linear-gradient(to top , #fa660b,black);
+  
+}
+#sombraPromoBaixo{
+  height: 30vh;
+  background: linear-gradient( to bottom , #fa660b,black );    
+}
+
+#promocoes{
+  position: relative;
+  top: -80px;
+}
+.textoPromo{
+  display: flex;
+  justify-content: center;
+  color:#fff;
+  text-align:center ;
+  position: relative;
+  font-size: 10vh ;
+  font-family:'montserrat','Poppins', sans-serif;
+  top:-35vh;
+  left:-15hv;
+}
+
+
+.promo-container {
+  width: 250px;
+  height: 150px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: -3vh;
+  margin-left: 2vh;
+}
+
+/* Estilo para o texto "ATÉ" */
+.promo-text-small {
+  font-size: 20px;
+  color: #000;
+  margin: 0;
+  margin-bottom: -50px;
+}
+
+/* Estilo para o texto "70%" */
+.promo-discount {
+  font-size: 10vh;
+  margin: 0;        
+  line-height: 1;
+  
+}
+
+/* Estilo para o texto "OFF" */
+.promo-text-off {
+  font-size: 20px;            
+  color: #000;
+  margin-bottom: 8px;
+}
+
+/* Botão com o texto "EM ATÉ 10X SEM JUROS!" */
+.promo-button {
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  font-size: 14px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+/* Alinhar parte de baixo "button"   */ 
+.buttonPromo{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    .cart-icon {
+        position: relative;
+        display: inline-block; /* Garante comportamento inline */
+        margin-left: 10px; /* Ajusta a posição horizontal em relação a outros itens */
+        cursor: pointer;
+    }
+
+.cart-icon img {
+  width: 3vw;
+}
+
+    #cart-count {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(40%, -40%); /* Centraliza no canto superior direito do ícone */
+        background: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10; /* Garante que o contador fique sobre outros elementos */
+    }
+.cart-popup {
+  color: #fff;
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 300px;
+  padding: 15px;
+  background-color: #202020;
+  border: 1px solid #ddd;   
+  border-radius: 15px;
+  box-shadow: 2px 4px 8px rgba(241, 70, 17, 0.988);
+}
+.cart-popup h2 {
+  margin-top: 0;
+}
+
+#cart-items {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#cart-items div {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+.cart-popup button {
+  background-color:#fa660b ;
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
+.cart-popup button:hover {
+  background-color: #fa4f0b;
+}
+
+.removerButton{
+  padding: 0 0 0 2px;
+  display: flex;
+  height: 25px;
+  width: 90px;
+  flex-direction: row;
+  align-items:center ;
+  justify-content: flex-start;
+
+}
+
+#cartaoPromo{
+  color: #000; 
+  display: flex; 
+  justify-content: center;
+  position:relative;
+  top:-250px
+}
+.inputContainer {
+    position: relative  ;
+    width: 15vw;
+    margin-left: 15vh;
+} 
+
+.inputImagem {
+    width: 100%;
+    padding-left: 4.5vh;
+    height: 4vh;
+    border: 1px solid #fa660b;
+    border-radius: 10vh;
+}
+
+.inputContainer img {
+    position: absolute;
+    left: 1.5vh;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2vh;
+    height: 2vh;
+}
+
+
+@media (max-width: 768px) {
+    .cart-icon {
+        margin: 10px 0; /* Adiciona espaço extra ao expandir */
+        position: absolute;
+        right: 10px; /* Garante que fique à direita */
+        top: 10px; /* Ajusta a posição para telas menores */
+    }
+    #cart-count {
+        transform: translate(50%, -50%);
+    }
+    .navbar-collapse .inputContainer {
+        width: calc(100% - 20px); /* Garante que o input fique alinhado ao canto */
+        margin: 0 auto; /* Centraliza o input */
+        padding: 0 10px; /* Adiciona espaçamento interno */
+    }
+    .navbar-collapse .inputImagem {
+        width: 100%; /* O input se ajusta automaticamente */
+    }
+}
+@media (max-width: 1199.98px) {
+    .inputContainer{
+        margin-left: 3rem;
+        margin-bottom: 10px;
+    }
+    .cart-icon{
+        position: absolute;
+        right: 100px;
+        top: 20px;
+    }
+    .cart-icon img{
+      width: 6vh;
+      height: 6vh;
+    }
+}
+
+</style>
+
+
+    <div id="imagemPrincipal">
+        <img src="img/imagemPrincipal.png" alt="tech" width="100%">
+  </div>
+
+
+<div id="categoria">
+        <div class="itemCategoria"><a href="/produto"><div class="textoCategoria">Peças</div><img src="img/pecas.png" alt="peças" height="200"></a></div>
+        <div class="itemCategoria"><a href="/produto"><div class="textoCategoria">Computadores</div><img src="img/laptop.png" alt="computadores" height="200"></a></div>
+        <div class="itemCategoria"><a href="/produto"><div class="textoCategoria">Acessórios</div><img src="img/fone.png" alt="acessórios" height="200"></a></div>
+</div>
+
+<div id="sombra">
+    <div id="sombraPromoCima"></div>  
+    <div id="sombraPromoBaixo"></div>
+</div>
+
+<div id="promocoes">
+    <div class="textoPromo">
+      <div>
+        <b>Promoções</b>
+      </div>
+      <div>
+          <div class="promo-container">
+            <div class="buttonPromo">
+                <div class="promo-text-small">ATÉ</div>
+              <p class="promo-discount">70%</p>
+            </div>
+            <div class="buttonPromo">
+                <div class="promo-button">EM ATÉ 10X SEM JUROS!</div>
+                <div class="promo-text-off">OFF</div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div id="cartaoPromo">
+<style>
+ #cartaoPromo .carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  left: 10px;
+}
+
+#cartaoPromo .carousel-track-container {
+  overflow: hidden;
+}
+
+#cartaoPromo  .carousel-track {
+  display: flex;
+  gap: 10px; /* Espaço entre os produtos */
+  transition: transform 0.5s ease-in-out;
+}
+
+#cartaoPromo  .carousel-slide {
+  flex: 0 0 calc(25% - 10px); /* Mostra 4 itens por vez */
+  text-align: center;
+  padding: 20px;
+}
+
+#cartaoPromo .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+#cartaoPromo .prev-btn {
+  left: 10px;
+}
+
+#cartaoPromo .next-btn {
+  right: 10px;
+}
+#cartaoPromo .card{
+    height: 45vh;
+    width: 220px;
+    margin: 10px;
+    background-color: #000;
+}
+
+#cartaoPromo .carousel ul{
+  list-style-type: none;
+
+}
+
+#cartaoPromo .alinhar{
+  height: 100%;
+}
+
+
+.itemCategoria :hover{
+  background-color: #131212;
+  border-radius: 20px;
+}
+</style>
+
+{{#if produtos}}
+<div class="carousel">
+  <button class="carousel-btn prev-btn">&lt;</button>
+  <div class="carousel-track-container" >
+    <ul class="carousel-track">
+      {{#each produtos}}
+      <li class="carousel-slide">
+        <div class="card" style="border: #fa660b solid 2px; border-radius: 10px;color:#fff">
+            <img 
+              src="img/{{imagem}}"  id="imagemProduto"  alt="{{nome}}"  style="border-radius: 8px;" width="100%" height="165vh">
+            <div class="card-body text-center" style="">
+              <h5 class="card-title" style="height: 30%;font-size: 80%;">{{nome}}</h5>
+              <p class="card-text">R$ {{precoPromo}}</p>
+              <a 
+                href="/produto/{{id}}" 
+                class="btn" 
+                style="background-color: #000; border: #fa660b solid 2px; color: #fa660b; padding: 4px;   ">
+                Ver Produto
+              </a>
+              <a 
+                class="btn" 
+                onclick="addItem(this)" 
+                style="background-color: #fa660b; border: #fa660b solid 2px; color: #000; padding: 4px;">
+                Comprar
+              </a>
+            </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <button class="carousel-btn next-btn">&gt;</button>
+</div>
+{{else}}
+<p>Nenhum produto encontrado.</p>
+{{/if}}
+
+<script>
+  const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next-btn');
+const prevButton = document.querySelector('.prev-btn');
+
+let currentIndex = 0;
+const visibleSlides = 4; // Número de itens visíveis por vez
+
+const updateSlidePosition = () => {
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+};
+
+nextButton.addEventListener('click', () => {
+  if (currentIndex < slides.length - visibleSlides) {
+    currentIndex++;
+    updateSlidePosition();
+  }
+});
+
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlidePosition();
+  }
+});
+
+// Inicializa a posição do carrossel
+updateSlidePosition();
+
+</script>
+</div>
+<style>
+ #canalTech{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  margin-top: 10vh;
+  
+ }
+ .alinharCanal{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-around;
+  
+ }
+ 
+ .celularCanal {
+  border-radius: 10px ;
+  border: #202020 solid 1.8vw;
+  border-left: #202020 solid 1.2vw ;
+  border-right: #202020 solid 1.2vw;
+  margin-left: 10vw;
+ 
+ }
+
+ .cartao{
+    width: auto;
+ }
+ .ProdutoCanal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 15vw;
+ }
+
+.button{
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.button a {
+  text-decoration: none;
+  
+}
+.alinharColuna{
+  width: 35vh;
+  height: 30vh;
+  border: #fff solid 5px;
+  border-radius: 10px;
+  margin-top: 35vh;
+  margin-bottom: 20vh;
+  margin-left: 5vw;
+  color:#fff;
+  text-align: center;
+  box-shadow: 2px 4px 8px rgba(27, 26, 26, 0.988);
+
+}
+
+
+.button div:hover{
+  background-color: #202020;
+  
+}
+</style>
+<div id="textoCanal"><img src="img/canalTech.png" alt="" width="100%"></div>
+<!--  Parte 1 --> 
+<div id="canalTech">
+  <div class="alinharCanal" >
+    <div class="celularCanal">
+      <div>
+        <video width="350vw" height="600vh"  loop controls >
+            <source src="img/camera_techsolutions.mp4" type="video/mp4">
+            <source src="img/camera_techsolutions.webm" type="video/webm">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+
+    </div>
+
+    <style>
+      .organizar button{
+          border: none;
+          border-radius: 10px;
+          padding: 5px 20px;
+      }
+    </style>
+  <div class="ProdutoCanal">
+      <div>
+        <div class="cartao">
+           <div class="card bg-dark text-white">
+                    <div>
+                    <img src="/img/fone.png" height="425"  width="auto" alt="fone">
+                    </div>
+                  <div class="card-body text-center"> 
+                    <h5 class="card-title">Fone de ouvido gamer profissional</h5>
+                    <small class="text-decoration-line-through text-muted" style="color: #ddd !important;">R$ 120,00</small>
+                    <p class="card-text" style="font-size: 50px;">R$ 79,90</p>
+                    <div class="organizar">
+                      <button class="organizar" style="background-color: #000;color:#fff;border:none;">Ver produto</button>
+                      <button class="organizar" onclick="addItem(this)" style="background-color: #fa4f0b;color:#000;border:none;" >Comprar</button>
+                    </div>
+                  </div>
+              </div>
+
+        </div>
+      </div>
+  </div>
+   
+  </div>
+</div>
+
+<!-- Parte 2 -->
+<div id="canalTech" style="margin-top: 25vh;" > 
+  <div class="alinharCanal" >
+      <div class="ProdutoCanal" style="margin:0;margin-left:10vw">
+      <div>
+        <div class="cartao">
+              <div class="card bg-dark text-white">
+                    <div>
+                    <img src="/img/fone.png" height="425"  width="auto" alt="fone">
+                    </div>
+                  <div class="card-body text-center"> 
+                    <h5 class="card-title">Fone de ouvido gamer profissional</h5>
+                    <small class="text-decoration-line-through text-muted" style="color: #ddd !important;">R$ 120,00</small>
+                    <p class="card-text" style="font-size: 50px;">R$ 79,90</p>
+                    <div class="organizar">
+                      <button class="organizar" style="background-color: #000;color:#fff;border:none;">Ver produto</button>
+                      <button class="organizar" onclick="addItem(this)" style="background-color: #fa4f0b;color:#000;border:none;" >Comprar</button>
+                    </div>
+                  </div>
+              </div>
+
+        </div>
+      </div>
+  </div>
+    <div class="celularCanal" style="margin:0;margin-right:10vw">
+      <div>
+        <video width="350vw" height="600vh"  loop controls >
+            <source src="img/camera_techsolutions.mp4" type="video/mp4">
+            <source src="img/camera_techsolutions.webm" type="video/webm">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
+
+    </div>
+
+   
+  </div>
+</div>
+
+<div id="rodapeButton">
+  <div class="button alinharCanal ">
+  <a href="https://www.instagram.com/techsollutions/">
+   <div class="alinharColuna">
+
+            <div >
+              <img src="/img/instagramLogo.png" alt="instragram" height="180"  >
+              <p>Acesse nosso instagram</p>
+           </div>   
+    </div>
+  </a>
+   <a href="/">  
+    <div class="alinharColuna">
+        <div>
+              <img src="/img/logoTech.png" alt="Tech Solutions" height="180">
+       
+          <p>Sobre a Tech</p>
+        </div>   
+    </div>
+  </a>
+
+  <a href="/">
+    <div class="alinharColuna">
+      <div style="margin-top: 25px;">
+        
+              <img src="/img/suporte.png" alt="suporte" height="150" >
+            <p style="margin-top: 8px;">Suporte</p>
+        
+      </div> 
+    </div>
+  </a>
+
+  </div>
+</div>
+

@@ -1,0 +1,53 @@
+<h1>Produtos</h1>
+
+<style>
+.cartao{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 40px;
+} 
+.cards{
+  
+    height: auto;
+    width: 220px;
+    margin: 10px;
+}
+
+</style>
+
+
+  <select class="form-select" aria-label="Default select example" style="width: 15%;background-color: #333; color:#fff ">
+    <option selected>filtre por Categoria</option>
+  {{#each produtos}}
+
+    <option value="{{categoria}}">{{categoria}}</option>
+
+  {{/each}}
+
+  </select>
+
+{{#if produtos}}
+
+ 
+<div class="cartao">
+     {{#each produtos}}     
+     
+          <div class=" cards" style="border: #fa660b solid 2px;border-radius:10px" >
+                      <div class="card text-white" style="background-color: #000000;">
+              
+                        <img src="/img/{{imagem}}" id="imagemProduto" class="card-img-top" alt="Exemplo Produto" height="200vh">
+                        <div class="card-body text-center">
+                          <h5 class="card-title" style="height: 30%;font-size: 80%;" >{{nome}}</h5>
+                          <p class="card-text" >R$ {{precoPromo}}</p>                         
+                            <a  href="produto/{{id}}" class="btn" style="background-color: #000;border:#fa660b solid 2px;color:#fa660b;padding:4px">Ver Produto</a>
+                            <a  class="btn  "  onclick="addItem(this)" style="background-color: #fa660b;border:#fa660b solid 2px;color:#000;padding:4px">Comprar</a>
+                        </div>
+                      </div>
+          </div>
+      {{/each}}
+</div>
+{{else}}
+    <p>Nenhum produto encontrado.</p>
+{{/if}}

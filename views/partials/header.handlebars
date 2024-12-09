@@ -1,0 +1,61 @@
+{{#if areaPrivada}}
+<!-- Navbar -->
+<nav class="admin-menu navbar navbar-expand-lg navbar-dark  bg-dark">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Liks da barra -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand nav-dark mt-2 mt-lg-0" href="/privado/">
+        <img src="/img/LogoTech.png" alt="Tech solutions" height="60">
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/privado/usuarios">Usuários</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/privado/produtos">Produtos</a>
+        </li>
+         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/privado/fornecedores">Fornecedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Principal</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Liks da barra -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Avatar -->
+      <div class="dropdown ">
+        <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="color:#fff" aria-expanded="false">
+         {{usuario}}
+        </a>
+        <ul
+         Logout class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item " href="/privado/usuarios/find/{{id}}">Meu Perfil</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/privado/sair">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+{{/if}}
+

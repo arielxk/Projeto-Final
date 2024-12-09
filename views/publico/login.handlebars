@@ -1,0 +1,82 @@
+
+<style>
+
+#cadastro{
+  background-color: #212121;
+  height: 75vh;
+  width: 65vw;
+  border-radius: 80px;
+  color: #fa660b;
+}
+.alinhar{
+  display: flex;
+  justify-content: center;
+ 
+}
+.alinhar2{
+    position: relative;
+    align-content: center;
+    left:10vw;
+    top:3vh
+}
+#imagemFundo{
+    background-image: url("/img/cadastro.png");
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: 35vw;
+    
+   
+}
+.titulo{
+    display: flex;
+    justify-content: center ;
+    font-size:  4vh;
+
+}
+
+
+#fomularioCadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 40vw;
+    height: ;
+    align-content: center;
+    margin-top: 10vh;
+
+}
+
+
+</style>
+
+<div class="alinhar" style="margin-top:8vh"> 
+  <div id="cadastro">
+            
+ <div id="imagemFundo">
+  <p class="titulo">LOGIN</p>
+    <div class="alinhar2">
+      <div>   
+          <form method="post" id="fomularioCadastro">
+            <div class="mb-3 row">
+                <label for="nome" class="col-sm-3 col-form-label">Nome de usuário: </label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="senha" class="col-sm-3 col-form-label">Senha: </label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="senha" name="senha">
+                </div>
+            </div>
+           
+      </div>
+    <hr style="width:40vw;">
+    <div>
+        <input type="submit" value="Entrar" class="btn btn-success"/>
+        <a href="/">
+            <button type="button" class="btn btn-danger">Cancelar</button>
+        </a>
+    </div>
+</form>

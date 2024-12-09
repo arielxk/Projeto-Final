@@ -1,0 +1,41 @@
+<h2>Edição de Usuários</h2>
+<hr>
+    <div class="mx-5">
+       Nome do usuário que esta sendo editado: <strong>{{dados.nome}}</strong>
+    </div>
+<hr>
+<form method="post">
+    <div class="mb-3 row">
+        <label for="nome" class="col-sm-3 col-form-label">Nome de usuário: </label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome" value="{{dados.nome}}">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="email" class="col-sm-3 col-form-label">E-mail: </label>
+        <div class="col-sm-9">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email" value="{{dados.email}}">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="senha" class="col-sm-3 col-form-label">Senha: </label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="senha" name="senha">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="confirmacao" class="col-sm-3 col-form-label">Confirmação de Senha: </label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="confirmacao" name="confirmacao">
+        </div>
+    </div>
+    <div class="mb-3 mx-5">
+        <strong>Obs:</strong> Caso não tenha interesse em alterar a senha, apenas mantenha os campos vazios!
+    </div>
+
+    <hr>
+    <input type="submit" value="Salvar" class="btn btn-success"/>
+    <a href="/privado/usuarios">
+        <button type="button" class="btn btn-danger">Cancelar</button>
+    </a>
+</form>

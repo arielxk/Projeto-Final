@@ -1,0 +1,72 @@
+{{#if areaLogin}}
+
+<style>
+  body html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#nave{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 3vh 3vh;    
+}
+
+#nave a{
+  text-decoration: none;
+  color: #fff;
+}
+#nave a:hover{
+  color:orangered
+}
+
+.linknav{
+    list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.linkNav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+   
+  }
+  .linkNav li{
+    margin-left: 7vw;
+  }
+
+.imagem{
+  position: absolute;
+  left:3vw;
+  top: 1vh;
+  height:10vh
+}
+</style>
+<div id="nave" >
+    <nav>
+        <div>
+          <a href="/"><img src="/img/LogoTech.png" alt="logo"  class="imagem"> </a>
+        </div>
+          
+        <div class="linkNav">
+          <ul>
+
+            <li><a href="">Promoções</a></li>
+            <li><a href="/produto">Produtos</a></li>
+            <li><a href="">Suporte</a></li>
+            <li><a href="/">Início</a></li>
+          
+          </ul>
+        </div>
+
+      
+    </nav>
+</div>
+{{/if}}

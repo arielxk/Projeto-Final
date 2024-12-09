@@ -1,0 +1,54 @@
+
+<style>
+
+    .alinhar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .alinhar ul {  
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+    }
+    .alinhar li{
+    display: flex;
+    margin-left: 5vw;
+    margin-top: 1vh;
+    }
+    .color{
+        color: #b9b9b9;
+        background-color: #212121;
+        border-top: #fa660b solid 3px;
+        
+    }
+</style>
+{{#if principal}}
+<div class="color">
+
+<div class="alinhar ">
+<div>
+    <img src="/img/LogoTech.png" alt="" height="80">
+</div>
+<div>
+    <ul>
+        <li>Fale conosco</li>
+        <li>Trabalhe conosco</li>
+        <li>Cookies</li>
+        <li>techsolution@faleconosco.com.br</li>
+        <li>(24) 123456789</li>
+    </ul>
+</div>
+<div>
+    Direitos reservados: @TechSolution
+</div>
+
+</div>
+
+</div>
+
+{{/if}}

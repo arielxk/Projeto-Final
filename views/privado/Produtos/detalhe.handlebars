@@ -1,0 +1,79 @@
+
+
+<style>
+.cartao{
+  width: 50%;
+  position:relative;
+  justify-content: space-around;
+  padding-left: 5vw;
+  align-content: center;
+} 
+#cartaoPromo{
+
+    position: absolute ;
+    background-color: #fa660b;
+    border-radius: 1vh;
+    width: auto;
+    height: 3vh;
+    
+    
+}
+</style>
+<h2>Detalhes do Produto</h2>
+<hr>
+<div style="display: flex;">
+<div class="cartao">
+  
+        
+    <div class="col-md-3 " style="width: 45%;">
+                <div class="card bg-dark text-white">
+                    
+        <div id="cartaoPromo" ></div>
+                  <img id="imagemProduto" src="/img/{{dados.imagem}}" class="card-img-top" alt="Exemplo Produto" height="250vh">
+                  <div class="card-body text-center">
+                    <h5 class="card-title" ><span id="nomeProduto">{{dados.nome}}</span></h5>
+                    <p class="card-text" style="font-size: 5vh;">R$ <span id="precoProduto"> {{dados.preco}}</span></p>
+                    <a onclick="addItem(this)" class="btn btn-primary" style="background-color: #000;border:none">Ver Produto</a>
+                    <a  class="btn btn-primary" style="background-color: #fa660b;border:none">Comprar</a>
+
+                  </div>
+                </div>
+    </div>
+   
+</div>
+
+<div style="display: block;width:40%;">
+<form method="post">
+    <div class="mb-3 row">
+        <div class="col-sm-3">Nome do Produto: </div>
+        <div class="col-sm-9"><strong>{{dados.nome}}</strong></div>
+    </div>
+    <div class="mb-3 row">
+       <div class="col-sm-3">Categoria: </div>
+        <div class="col-sm-9"><strong>{{dados.categoria}}</strong></div>
+    </div>
+     <div class="mb-3 row">
+       <div class="col-sm-3">Preço: </div>
+        <div class="col-sm-9"><strong>R$ {{dados.preco}}</strong></div>
+    </div>
+    <div class="mb-3 row">
+       <div class="col-sm-3">Preço da Promoção: </div>
+        <div class="col-sm-9"><strong>R$ {{dados.precoPromo}}</strong></div>
+    </div>
+    <div class="mb-3 row">
+       <div class="col-sm-3">Quantidade Estoque: </div>
+        <div class="col-sm-9"><strong>{{dados.qtdEstoque}}</strong></div>
+    </div>
+     <div class="mb-3 row">
+       <div class="col-sm-3">Descrição: </div>
+        <div class="col-sm-9"><strong>{{dados.descricao}}</strong></div>
+    </div>
+ 
+    <hr>
+    <a href="/privado/produtos">
+        <button type="button" class="btn btn-primary">Fechar</button>
+    </a>
+</form>
+</div>
+</div>
+
